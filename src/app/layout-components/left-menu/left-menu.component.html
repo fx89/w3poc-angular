@@ -1,0 +1,21 @@
+<div class="left-menu-content" style="width:calc(100% - 17px); height:100%;">
+    <div style="width:100%; height:calc(100% - 20px)">
+        <iconic-thumbnail iconName="menu" [value]="localization.getMessage('collapseMenu')" [selected]="false" (click)="toggleMenu()"></iconic-thumbnail>
+
+        <iconic-thumbnail iconName="grid_on" [value]="localization.getMessage('home')" [selected]="isPageSelected('')" (click)="goToPage('')"></iconic-thumbnail>
+
+        <iconic-thumbnail iconName="accessibility_new" [value]="localization.getMessage('customers')"        [selected]="isPageSelected('customers')" (click)="goToPage('customers')"></iconic-thumbnail>
+        <iconic-thumbnail iconName="tap_and_play"      [value]="localization.getMessage('handsets')"         [selected]="false"></iconic-thumbnail>
+        <iconic-thumbnail iconName="more"              [value]="localization.getMessage('tickets')"          [selected]="false"></iconic-thumbnail>
+        <iconic-thumbnail iconName="attach_money"      [value]="localization.getMessage('billingAccounts')"  [selected]="false"></iconic-thumbnail>
+        <iconic-thumbnail iconName="score"             [value]="localization.getMessage('options')"          [selected]="false"></iconic-thumbnail>
+    </div>
+
+    <div
+        class="left-menu-footer"
+        style="width:100%; height:20px; font-size:14px; text-align:center;"
+    >
+        © {{ localization.getMessage("copyright") }}
+    </div>
+</div>
+

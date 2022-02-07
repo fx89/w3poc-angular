@@ -1,0 +1,12 @@
+<table><tr><td>
+    <img src="assets/localization/{{ selection }}.png" style="width:28px; height:28px; padding-top:4px;" />
+</td><td>
+    <mat-form-field appearance="fill" style="width:90px;">
+        <mat-select disableRipple [(value)]="selection" (selectionChange)="onLanguageSelectionChanged($event)">
+            <mat-option *ngFor="let language of this.getAvailableLanguages()" [value]="language">
+                <img src="assets/localization/{{ language }}.png" style="width:20px; height:20px; vertical-align:middle; margin-top:-2px;" />
+                {{ language }}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+</td></tr></table>

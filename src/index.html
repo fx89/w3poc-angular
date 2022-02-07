@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>W3POC</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <configuration
+      loginFormUrl = "https://w3poc.auth.us-east-1.amazoncognito.com/login?client_id=943krur1iskje93jvcmit66kpe0&response_type=token&scope=openid"
+      backendUrl = "https://myapicostsmemoneywhichidontwanttopay.execute-api.us-east-1.amazonaws.com/PROD"
+      frontendUrl = "http://localhost:4200"
+      authCompleteSubpath = "auth-complete"
+  ></configuration>
+
+
+  <!-- Layout stylesheets -->
+  <link rel="stylesheet" href="assets/css/main-layout.css">
+
+  <!-- Color themes -->
+  <link rel="stylesheet" href="assets/css/colors.css">
+  <link rel="stylesheet" href="assets/css/color-themes/dark.css">
+
+  <!-- Angular Materials -->
+  <link rel="stylesheet" href="assets/css/ng-material-themes/purple-green.css">
+  <link rel="stylesheet" href="assets/css/materials-overrides.css">
+  <link rel="stylesheet" href="assets/css/component-styling/datatable.css">
+
+  <!-- Material Icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons&display=block" rel="stylesheet">
+
+
+</head>
+<body class="color-theme-dark" style="margin:0px; padding:0px;">
+  <app-root></app-root>
+</body>
+</html>

@@ -1,0 +1,166 @@
+body {
+    background-color: var(--page-background-color);
+    color: var(--default-foreground-color);
+}
+
+.top-bar {
+    background-color: var(--top-bar-background-color-1);
+
+    background: var(--top-bar-background-color-1); /* Old browsers */
+    background: -moz-linear-gradient(top,  var(--top-bar-background-color-1) 0%, var(--top-bar-background-color-2) 47%, var(--top-bar-background-color-2) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top,  var(--top-bar-background-color-1) 0%,var(--top-bar-background-color-2) 47%,var(--top-bar-background-color-2) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom,  var(--top-bar-background-color-1) 0%,var(--top-bar-background-color-2) 47%,var(--top-bar-background-color-2) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+}
+
+.top-bar-accent {
+    background-color: var(--top-bar-accent-color);
+}
+
+.top-bar-accent2 {
+    background-color: var(--top-bar-accent2-color);
+}
+
+.left-menu-content {
+    background-color: var(--left-menu-background-color);
+
+    box-shadow: 5px -10px 13px -2px var(--left-menu-shadow-color);
+    -webkit-box-shadow: 5px -10px 13px -2px var(--left-menu-shadow-color);
+    -moz-box-shadow: 5px -10px 13px -2px var(--left-menu-shadow-color);
+}
+
+.left-menu-footer {
+    background-color: var(--left-menu-footer-background-color);
+    color: var(--left-menu-footer-foreground-color);
+}
+
+.iconic-thumbnail {
+    background-color: var(--iconic-thumbnail-background-color);
+    color: var(--iconic-thumbnail-foreground-color);
+    border-color: var(--iconic-thumbnail-border-color);
+}
+
+.iconic-thumbnail .iconic-thumbnail-icon {
+    background-color: var(--iconic-thumbnail-background-color-icon);
+    color: var(--iconic-thumbnail-foreground-color-icon);
+    border-color: var(--iconic-thumbnail-background-color-icon);
+}
+
+.iconic-thumbnail:hover {
+    background-color: var(--iconic-thumbnail-background-color-hover);
+    color: var(--iconic-thumbnail-foreground-color-hover);
+    border-color: var(--iconic-thumbnail-border-color-hover);
+    -webkit-transition: background-color 500ms linear;
+    -ms-transition: background-color 500ms linear;
+    transition: background-color 500ms linear;
+}
+
+.iconic-thumbnail:hover .iconic-thumbnail-icon {
+    background-color: var(--iconic-thumbnail-background-color-icon-selected);
+    color: var(--iconic-thumbnail-foreground-color-icon-selected);
+    border-color: var(--iconic-thumbnail-background-color-icon-selected);
+    -webkit-transition: background-color 500ms linear;
+    -ms-transition: background-color 500ms linear;
+    transition: background-color 500ms linear;
+}
+
+.iconic-thumbnail.selected {
+    background-color: var(--iconic-thumbnail-background-color-selected);
+    color: var(--iconic-thumbnail-foreground-color-selected);
+    border-color: var(--iconic-thumbnail-border-color);
+}
+
+.iconic-thumbnail.selected .iconic-thumbnail-icon {
+    background-color: var(--iconic-thumbnail-background-color-icon-selected);
+    color: var(--iconic-thumbnail-foreground-color-icon-selected);
+    border-color: var(--iconic-thumbnail-background-color-icon);
+}
+
+
+.modal-cover {
+    background-color: var(--loading-modal-cover-background-color);
+}
+
+.loading-modal-ribbon {
+    background-color: var(--loading-modal-ribbon-color);
+}
+
+.loading-modal-ribbon.left {
+    box-shadow: 1px -1px 42px -1px var(--loading-modal-ribbon-shadow-color);
+    -webkit-box-shadow: 1px -1px 42px -1px var(--loading-modal-ribbon-shadow-color);
+    -moz-box-shadow: 1px -1px 42px -1px var(--loading-modal-ribbon-shadow-color);
+}
+
+.loading-modal-ribbon.right {
+    box-shadow: 19px -1px 42px -1px var(--loading-modal-ribbon-shadow-color);
+    -webkit-box-shadow: 19px -1px 42px -1px var(--loading-modal-ribbon-shadow-color);
+    -moz-box-shadow: 19px -1px 42px -1px var(--loading-modal-ribbon-shadow-color);
+}
+
+.loading-modal-form {
+    background-color: var(--loading-modal-form-background-color);
+    color: var(--loading-modal-form-foreground-color);
+    border-color: var(--loading-modal-form-border-color);
+    box-shadow: 1px -1px 42px -1px var(--loading-modal-form-shadow-color);
+    -webkit-box-shadow: 1px -1px 42px -1px var(--loading-modal-form-shadow-color);
+    -moz-box-shadow: 1px -1px 42px -1px var(--loading-modal-form-shadow-color);
+}
+
+.three-dots-loading .dot1,
+.three-dots-loading .dot2,
+.three-dots-loading .dot3
+{
+    background-color: var(--loading-dot-background-color);
+    border-color: var(--loading-dot-border-color);
+}
+
+
+.app-content {
+
+}
+
+
+.mat-flat-button, .mat-raised-button, .mat-fab, .mat-mini-fab {
+    color: var(--button-foreground-color) !important;
+    background-color: var(--button-background-color) !important;
+}
+
+.mat-primary .mat-option:not(.mat-option-disabled) {
+    color: var(--input-foreground-color) !important;
+}
+
+.mat-primary .mat-option.mat-selected:not(.mat-option-disabled) {
+    color: var(--input-foreground-color-selected) !important;
+}
+
+.mat-select-panel .mat-option.mat-selected:not(.mat-option-multiple) {
+    background-color: var(--input-background-color-selected) !important;
+}
+
+.mat-form-field-label {
+    color: var(--input-label-foregroud-color) !important;
+}
+
+.mat-form-field-.mat-focused .mat-form-field-label {
+    color: var(--input-label-foregroud-color-focused) !important;
+}
+
+
+th.mat-header-cell {
+    background-color: var(--datatable-header-background-color) !important;
+    color: var(--datatable-header-foreground-color) !important;
+    border-bottom-color: var(--datatable-header-border-color) !important;
+}
+
+.mat-row .mat-cell {
+    background-color: var(--datatable-cell-background-color) !important;
+    color: var(--datatable-cell-foreground-color) !important;
+    border-bottom-color: var(--datatable-cell-border-color) !important;
+}
+
+.mat-row:hover .mat-cell {
+    background-color: var(--datatable-cell-background-color-hover) !important;
+    color: var(--datatable-cell-foreground-color-hover) !important;
+    -webkit-transition: background-color 200ms linear;
+    -ms-transition: background-color 200ms linear;
+    transition: background-color 200ms linear;
+}

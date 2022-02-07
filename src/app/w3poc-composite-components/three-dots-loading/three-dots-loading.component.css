@@ -1,0 +1,42 @@
+.three-dots-loading {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+  
+.three-dots-loading .dot1,
+.three-dots-loading .dot2,
+.three-dots-loading .dot3
+{
+    width: 4px;
+    height: 4px;
+    border: solid;
+    border-width: 2px;
+    border-radius: 50%;
+    margin: 10px;
+}
+  
+.three-dots-loading .dot1 {
+    animation: tdLoadJump 1.6s -0.32s linear infinite;
+}
+
+.three-dots-loading .dot2 {
+    animation: tdLoadJump 1.6s -0.16s linear infinite;
+}
+
+.three-dots-loading .dot3 {
+    animation: tdLoadJump 1.6s linear infinite;
+}
+  
+@keyframes tdLoadJump {
+    0%, 80%, 100% { 
+      -webkit-transform: scale(0);
+      transform: scale(0);
+    } 40% { 
+      -webkit-transform: scale(2.0);
+      transform: scale(2.0);
+    }
+}
