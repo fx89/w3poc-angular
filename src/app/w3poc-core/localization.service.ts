@@ -5,12 +5,13 @@ import { english_LanguageMap } from './localization/english';
 import { italiano_LanguageMap } from './localization/italiano';
 
 const USER_LANGUAGE_KEY : string = "user-language"
+const DEFAULT_LANGUAGE_KEY : string = "english"
 
 @Injectable({
   providedIn: 'root'
 })
 export class LocalizationService {
-    
+
     private languages : string[] = []
     private languageMaps : any = []
 
@@ -21,13 +22,21 @@ export class LocalizationService {
     constructor(
         private config : ConfigService,
         private http : HttpClient
-    ) { 
+    ) {
         // Add language maps
         this.languageMaps["english"] = english_LanguageMap
         this.languageMaps["italiano"] = italiano_LanguageMap
 
         // Set the loaded language map
         this.loadedLanguageMap = this.languageMaps[this.selectedLanguage]
+
+        // If this is the first time the app runs, there will be no user
+        // language setting in the local storage, in which case the default
+        // language map will be used
+        if (this.loadedLanguageMap == null || this.loadedLanguageMap == undefined || this.loadedLanguageMap == "null") {
+            this.selectedLanguage = DEFAULT_LANGUAGE_KEY
+            this.loadedLanguageMap = this.languageMaps[this.selectedLanguage]
+        }
 
         // Load the languages array from the language map
         for (let l in this.languageMaps) {
