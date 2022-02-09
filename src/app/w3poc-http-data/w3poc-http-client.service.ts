@@ -1,12 +1,11 @@
 import { EventEmitter, Injectable } from '@angular/core';
-import { HttpClientWrapperService, RequestType } from './http-client-wrapper.service';
 import { Observable } from 'rxjs';
-import { ConfigService } from '../w3poc-core/config-service.service';
 import { LoginService } from '../w3poc-core/login-service.service';
 import { DataLayerResponse, RESPONSE_TYPE_ERROR } from './model/DataLayerResponse';
 import { FilterSpecification } from './model/FilterSpecification';
 import { WindowSpecification } from './model/WindowSpecification';
 import { DataLayerRequest } from './model/DataLayerRequest';
+import { W3POCHttpClientDataProvider } from './w3poc-http-client-data-provider';
 
 @Injectable({
   providedIn: 'root'
@@ -25,35 +24,11 @@ export class W3POCHttpClientService {
      */
     private localErrorEventEmitter : EventEmitter<any> = new EventEmitter<any>();
 
-    /**
-     * This is the URL to which requests will be sent
-     */
-    private backendUrl : string = ""
-
-    /**
-     * The authorization header will contain the id_token requied by AWS
-     */
-    private authorizationHeader : Map<string, string | null> | undefined;
-  
     constructor(
-        private client : HttpClientWrapperService,
-        private config : ConfigService,
-        private loginService : LoginService
+        private loginService : LoginService,
+        private clientDataProvider : W3POCHttpClientDataProvider
     ) {
-        this.backendUrl = this.config.getAttributeValue("backendUrl")
         this.subscribeToLocalErrorEventEmitter()
-    }
-
-    /**
-     * Applies the id_token to the authorization header and caches the authorization
-     * header in memory, to avoid executing this operation with every request
-     */
-    private resolveAuthorizationHeader() : Map<string, string | null> | undefined {
-        if (this.authorizationHeader == undefined) {
-            this.authorizationHeader = new Map([["Authorization", this.loginService.getIdToken()]])
-        }
-
-        return this.authorizationHeader
     }
 
     public requestData(
@@ -82,15 +57,8 @@ export class W3POCHttpClientService {
         // A response event emitter is required to be returned
         let responseEventEmitter : EventEmitter<DataLayerResponse> = new EventEmitter<DataLayerResponse>()
 
-        // Then send the request to the backend URL, along with the authorization header
-        this.client.requestWithErrorHandling(
-                      RequestType.POST,                   // The request type is always POST
-                      this.backendUrl,                    // The URL to the generic lambda that gets data from any table
-                      { "request": request },             // The DataLayerRequest object is put in the body of the POST request
-                      this.localErrorEventEmitter,        // The local error event emitter will emit errors to the local subscriber to be processed and then sent to external consumers via the public errorEventEmitter
-                      undefined,                          // There are no URL params
-                      this.resolveAuthorizationHeader()   // The authorization header is needed for accessing the backend
-                  )
+        // The second step is to send the request through the injected clientDataProvider
+        this.clientDataProvider.requestData(request, this.localErrorEventEmitter)
             // The data layer response needs to be checked for error codes. If there is
             // an error code in the data layer response, then the errorEventEmitter must
             // emit the response. Otherwise, the responseEventEmitter must send the data

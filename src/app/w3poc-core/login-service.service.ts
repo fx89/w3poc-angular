@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { ConfigService } from './config-service.service';
-import { getCookie, setCookie } from './CookieUtils';
 
 const MIN_TOKEN_LENGTH : number = 20
 export const ID_TOKEN_PARAM_NAME : string = "id_token"
@@ -14,12 +13,20 @@ export class LoginService {
   private loginUrl : string | any
   private idToken : string | null = sessionStorage.getItem(ID_TOKEN_PARAM_NAME)
 
+  private skipLoginProcess : boolean = false
+
   constructor(private config:ConfigService) {
-      this.loginUrl = this.compileLoginUrl(
-          this.config.getAttributeValue("loginFormUrl"),
-          this.config.getAttributeValue("frontendUrl"),
-          this.config.getAttributeValue("authCompleteSubpath")
-      )
+      this.skipLoginProcess = this.config.getAttributeValue("skipLoginProcess") == "true"
+
+      if (this.skipLoginProcess) {
+          this.loginUrl = this.config.getAttributeValue("frontendUrl")
+      } else {
+          this.loginUrl = this.compileLoginUrl(
+              this.config.getAttributeValue("loginFormUrl"),
+              this.config.getAttributeValue("frontendUrl"),
+              this.config.getAttributeValue("authCompleteSubpath")
+          )
+      }
   }
 
   private compileLoginUrl(loginFormURL:string, frontendURL:string, authCompleteSubpath:string) : string {
@@ -40,6 +47,10 @@ export class LoginService {
   }
 
   public isNotLoggedIn() : boolean {
+      if (this.skipLoginProcess) {
+          return false
+      }
+
       return this.idToken == undefined || this.idToken == 'undefined'
   }
 
@@ -50,7 +61,11 @@ export class LoginService {
   }
 
   public validateIdToken(idToken : string | any) : boolean {
-        return !(idToken == null || idToken == undefined || idToken.length < MIN_TOKEN_LENGTH)
+      if (this.skipLoginProcess) {
+          return true
+      }
+
+      return !(idToken == null || idToken == undefined || idToken.length < MIN_TOKEN_LENGTH)
   }
 
   public purgeLoginToken() {
