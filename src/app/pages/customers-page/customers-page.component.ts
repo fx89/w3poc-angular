@@ -16,12 +16,22 @@ export class CustomersPageComponent implements OnInit {
   selectedCustomerType : any = this.CUSTOMER_TYPE_ALL
 
   customers : any[]
-  customersTableColumns : string[] = ["name", "type"]
+  customersTableColumns : string[] = [
+      "name",
+      "type",
+      "address",
+      "phoneNumber",
+      "emailAddress",
+      "addedBy",
+      "addedDate",
+      "lastModifiedBy",
+      "lastModifiedDate"
+    ]
 
   namePattern : string = ''
 
   windowStart : number = 0
-  windowSize : number = 100
+  windowSize : number = 10
 
   constructor(
       private dataService : W3pocDataService,
@@ -62,6 +72,33 @@ export class CustomersPageComponent implements OnInit {
   }
 
   onFiltersChanged() {
+      this.resetWindow()
       this.findCustomers()
+  }
+
+  isPrevPageButtonDisabled() {
+      return this.windowStart == 0
+  }
+
+  isNextPageButtonDisabled() {
+      return this.customers?.length < this.windowSize
+  }
+
+  goToNextPage() {
+      if (!this.isNextPageButtonDisabled()) {
+          this.windowStart += this.windowSize
+          this.findCustomers()
+      }
+  }
+
+  goToPrevPage() {
+      if (!this.isPrevPageButtonDisabled()) {
+          this.windowStart -= this.windowSize
+          this.findCustomers()
+      }
+  }
+
+  private resetWindow() {
+      this.windowStart = 0
   }
 }

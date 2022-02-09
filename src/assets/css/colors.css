@@ -164,3 +164,8 @@ th.mat-header-cell {
     -ms-transition: background-color 200ms linear;
     transition: background-color 200ms linear;
 }
+
+.w3poc-panel {
+    background-color: var(--panel-background-color);
+    color: var(--panel-foreground-color);
+}

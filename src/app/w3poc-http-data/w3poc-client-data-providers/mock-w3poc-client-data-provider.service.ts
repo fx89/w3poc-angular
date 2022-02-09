@@ -18,7 +18,7 @@ const MOCK_DATA_PATH : string = "assets/mock-data/"
 })
 export class MockW3pocClientDataProviderService extends W3POCHttpClientDataProvider {
 
-    private verbosity : boolean = false
+    private verbosity : boolean = true
 
     constructor(
         private http : HttpClient
@@ -87,7 +87,7 @@ export class MockW3pocClientDataProviderService extends W3POCHttpClientDataProvi
         }
 
         // Get the table columns from the first row of the CSV file
-        const colNames : string[] = this.getRecValues(tableData[0])
+        const colNames : string[] = this.getRecValues(tableData[0], true)
 
         // Check the filters. If they are not ok, respond with an error and exit.
         const filtersRelatedError = this.checkFilterSpecification(request, colNames)
@@ -117,7 +117,7 @@ export class MockW3pocClientDataProviderService extends W3POCHttpClientDataProvi
             // If the record is valid (not the last record or something)
             if (tableData[recIndex].length > 1) {
               // Split the record into values
-              const recValues : string[] = this.getRecValues(tableData[recIndex])
+              const recValues : string[] = this.getRecValues(tableData[recIndex], false)
 
               // If the record matches the filters
               if (this.recMatchesFilters(request.filters, recValues, colNames)) {
@@ -146,11 +146,15 @@ export class MockW3pocClientDataProviderService extends W3POCHttpClientDataProvi
         this.emitOk(responseEventEmitter, resultSet)
     }
 
-    private getRecValues(colsRow:string) : string[] {
+    private getRecValues(colsRow:string, toLower:boolean) : string[] {
         const colNames : string[] = []
 
-        for (let colName of colsRow.split(',')) {
-            colNames.push(colName.trim().replace('"',""))
+        for (let colName of colsRow.split('","')) {
+            let colValue = colName.trim().replace('"',"")
+            if (toLower) {
+                colValue = colValue.toLocaleLowerCase()
+            }
+            colNames.push(colValue)
         }
 
         return colNames
@@ -200,7 +204,7 @@ export class MockW3pocClientDataProviderService extends W3POCHttpClientDataProvi
             const filterSpec:FilterSpecification = <FilterSpecification>filter
             const filterColValue : string = <string>(filter.columnValue)
             const colIndex : number = colNames.indexOf(filterSpec.columnName)
-            const recColValue : string = recValues[colIndex]
+            let recColValue : string = recValues[colIndex]; if (recColValue == undefined) recColValue = ""
 
             // If the filter specification requests matching,
             // then a case-insensitive regex comparison has to be done

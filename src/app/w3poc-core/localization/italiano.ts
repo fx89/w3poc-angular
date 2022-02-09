@@ -14,9 +14,20 @@ export const italiano_LanguageMap = {
 
     customerName     : "Nome del cliente",
     customerType     : "Tipo del cliente",
+    address          : "Indirizzo",
+    addedBy          : "Aggiunto da",
+    addedDate        : "Data Aggiunta",
+    lastModifiedBy   : "Ultima modifica di",
+    lastModifiedDate : "Data Ultima Modifica",
+    phoneNumber      : "Numero di Telefono",
+    emailAddress     : "Indirizzo Email",
 
     all              : "Tutti",
     clear            : "Cancellare",
 
     loadingData      : "Caricamento dei Dati",
+    filters          : "Filtri",
+
+    previousPage     : "Pagina Precedente",
+    nextPage         : "Pagina Successiva",
 }

@@ -56,4 +56,7 @@
     --datatable-cell-border-color: #444;
     --datatable-cell-background-color-hover: #444;
     --datatable-cell-foreground-color-hover: #FFF;
+
+    --panel-background-color: #333;
+    --panel-foreground-color: #CCC;
 }

@@ -34,7 +34,7 @@ export class CustomerRepository extends EntityRepository {
         return this.requestDataCustomRequest(
             [
                 new FilterSpecification("customer_type_id", typeId),
-                new FilterSpecification("customer_name", '%' + customerName + '%')
+                new FilterSpecification("cust_bo_name", '%' + customerName + '%')
             ],
             new WindowSpecification(windowStart, windowSize)
         )
@@ -42,7 +42,7 @@ export class CustomerRepository extends EntityRepository {
 
     public pageAllByNameLike(customerName:string, windowStart:number, windowSize:number) {
         return this.requestDataCustomRequest(
-            [ new FilterSpecification("customer_name", '%' + customerName + '%') ],
+            [ new FilterSpecification("cust_bo_name", '%' + customerName + '%') ],
             new WindowSpecification(windowStart, windowSize)
         )
     }
