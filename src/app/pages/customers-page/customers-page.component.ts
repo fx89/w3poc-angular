@@ -14,7 +14,7 @@ export class CustomersPageComponent implements OnInit {
   customerTypesMap : any = []
   customerTypes : any[]
   selectedCustomerType : any = this.CUSTOMER_TYPE_ALL
-  
+
   customers : any[]
   customersTableColumns : string[] = ["name", "type"]
 
@@ -58,7 +58,6 @@ export class CustomersPageComponent implements OnInit {
       requestObserver
           .subscribe(ret => {
               this.customers = ret.response
-              this.customers.push(this.CUSTOMER_TYPE_ALL)
             })
   }
 
