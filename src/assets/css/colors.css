@@ -3,6 +3,14 @@ body {
     color: var(--default-foreground-color);
 }
 
+body::-webkit-scrollbar-track {
+    background: var(--scrollbar-background-color);
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: var(--scrollbar-foreground-color);
+}
+
 .top-bar {
     background-color: var(--top-bar-background-color-1);
 

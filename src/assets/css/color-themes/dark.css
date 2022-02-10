@@ -2,6 +2,9 @@
     --page-background-color: #222;
     --default-foreground-color: #CCC;
 
+    --scrollbar-background-color: #000;
+    --scrollbar-foreground-color: #555;
+
     --top-bar-background-color-1: #252525;
     --top-bar-background-color-2: #4D4545;
     --top-bar-accent-color: #B63;

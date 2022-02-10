@@ -3,7 +3,7 @@ body {
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
 }
-  
+
 @keyframes fadeInAnimation {
     0% {
         opacity: 0;
@@ -14,25 +14,17 @@ body {
 }
 
 body::-webkit-scrollbar {
-    width: 5px;               /* width of the entire scrollbar */
+    width: 5px;
 }
-  
-body::-webkit-scrollbar-track {
-    background: orange;        /* color of the tracking area */
-}
-  
+
 body::-webkit-scrollbar-thumb {
-    background-color: blue;    /* color of the scroll thumb */
-    border-radius: 20px;       /* roundness of the scroll thumb */
-    border: none;  /* creates padding around scroll thumb */
+    border-radius: 20px;
+    border: none;
 }
 
 * {
-    scrollbar-width: thin ;          /* "auto" or "thin" */
-    scrollbar-color: blue orange;   /* scroll thumb and track */ 
+    scrollbar-width: thin;
 }
-  
-
 
 .left-menu.closed {
     position:absolute;
