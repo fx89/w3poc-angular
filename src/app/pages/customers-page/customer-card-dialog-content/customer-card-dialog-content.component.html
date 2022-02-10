@@ -1,0 +1,67 @@
+<h2 mat-dialog-title>{{ localization.getMessage('customerData') }}</h2>
+<mat-dialog-content class="mat-typography">
+    <div style="width:500px; height:300px;">
+
+      <!-- General Information -->
+      <div class="w3poc-panel mat-elevation-z4">
+        {{ localization.getMessage('basicInfo') }}
+        <hr />
+        <table>
+          <tr><td style="width:140px;"><b>{{ localization.getMessage('registryNumber') }}</b></td><td></td><td>
+              {{ customer.id }}
+          </td></tr>
+          <tr><td><b>{{ localization.getMessage('customerName') }}</b></td><td></td><td>
+              {{ customer.cust_bo_name }}
+          </td></tr>
+          <tr><td><b>{{ localization.getMessage('customerType') }}</b></td><td></td><td>
+              {{ customerTypesMap[customer.customer_type_id] }}
+          </td></tr>
+        </table>
+      </div>
+
+      <div style="height:10px;"></div>
+
+      <!-- Contact Information -->
+      <div class="w3poc-panel mat-elevation-z4">
+        {{ localization.getMessage('contactInfo') }}
+        <hr />
+        <table>
+          <tr><td style="width:140px;"><b>{{ localization.getMessage('address') }}</b></td><td></td><td>
+              {{ customer.address }}
+          </td></tr>
+          <tr><td><b>{{ localization.getMessage('emailAddress') }}</b></td><td></td><td>
+              {{ customer.cmcnt_email }}
+          </td></tr>
+          <tr><td><b>{{ localization.getMessage('phoneNumber') }}</b></td><td></td><td>
+            {{ customer.cmcnt_phone }}
+          </td></tr>
+        </table>
+      </div>
+
+      <div style="height:10px;"></div>
+
+      <!-- Operator Information -->
+      <div class="w3poc-panel mat-elevation-z4">
+        {{ localization.getMessage('operatorInfo') }}
+        <hr />
+        <table>
+          <tr><td style="width:140px;"><b>{{ localization.getMessage('added') }}</b></td><td></td><td>
+              {{ customer.cust_row_added_dttm }} ( {{ customer.pradd_row_added_oprid }} )
+          </td></tr>
+          <tr><td><b>{{ localization.getMessage('modified') }}</b></td><td></td><td>
+              {{ customer.cust_row_lastmant_dttm }} ( {{ customer.pradd_row_lastmant_oprid }} )
+          </td></tr>
+        </table>
+      </div>
+    </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <table style="width:100%"><tr>
+    <td>
+        <button mat-raised-button color="primary" (click)="onViewHandsetsButtonClick()">{{ localization.getMessage('viewHandsets') }}</button>
+    </td>
+    <td style="text-align:right;">
+        <button mat-raised-button color="primary" [mat-dialog-close]="true" cdkFocusInitial>{{ localization.getMessage('close') }}</button>
+    </td>
+  </tr></table>
+</mat-dialog-actions>

@@ -12,6 +12,7 @@ export const english_LanguageMap = {
     billingAccounts  : "Billing Accounts",
     options          : "Options",
 
+    customerData     : "Customer Information",
     customerName     : "Customer Name",
     customerType     : "Customer Type",
     address          : "Address",
@@ -22,8 +23,22 @@ export const english_LanguageMap = {
     phoneNumber      : "Phone Number",
     emailAddress     : "Email Address",
 
+    registryNumber   : "Registry number",
+
+    basicInfo        : "Basic Information",
+    operatorInfo     : "Operator Information",
+    contactInfo      : "Contact Information",
+
+    customerHandsets : "Customer Handsets",
+
+    added            : "Added",
+    modified         : "Modified",
+
     all              : "All",
     clear            : "Clear",
+    close            : "Close",
+
+    viewHandsets     : "View Handsets",
 
     loadingData      : "Loading Data",
     filters          : "Filters",

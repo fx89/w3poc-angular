@@ -26,47 +26,27 @@
 
     <ng-container matColumnDef="name">
         <th mat-header-cell *matHeaderCellDef> {{ this.localization.getMessage('customerName') }} </th>
-        <td mat-cell *matCellDef="let element"> {{ element.cust_bo_name }} </td>
+        <td mat-cell *matCellDef="let element" (click)="openCustomerCardDialog(element)"> {{ element.cust_bo_name }} </td>
     </ng-container>
 
     <ng-container matColumnDef="type">
         <th mat-header-cell *matHeaderCellDef> {{ this.localization.getMessage('customerType') }} </th>
-        <td mat-cell *matCellDef="let element"> {{ customerTypesMap[element.customer_type_id] }} </td>
+        <td mat-cell *matCellDef="let element" (click)="openCustomerCardDialog(element)"> {{ customerTypesMap[element.customer_type_id] }} </td>
     </ng-container>
 
     <ng-container matColumnDef="address">
       <th mat-header-cell *matHeaderCellDef> {{ this.localization.getMessage('address') }} </th>
-      <td mat-cell *matCellDef="let element"> {{ element.address }} </td>
+      <td mat-cell *matCellDef="let element" (click)="openCustomerCardDialog(element)"> {{ element.address }} </td>
     </ng-container>
 
     <ng-container matColumnDef="phoneNumber">
       <th mat-header-cell *matHeaderCellDef> {{ this.localization.getMessage('phoneNumber') }} </th>
-      <td mat-cell *matCellDef="let element"> {{ element.cmcnt_phone }} </td>
+      <td mat-cell *matCellDef="let element" (click)="openCustomerCardDialog(element)"> {{ element.cmcnt_phone }} </td>
     </ng-container>
 
     <ng-container matColumnDef="emailAddress">
       <th mat-header-cell *matHeaderCellDef> {{ this.localization.getMessage('emailAddress') }} </th>
-      <td mat-cell *matCellDef="let element"> {{ element.cmcnt_email }} </td>
-    </ng-container>
-
-    <ng-container matColumnDef="addedBy">
-      <th mat-header-cell *matHeaderCellDef> {{ this.localization.getMessage('addedBy') }} </th>
-      <td mat-cell *matCellDef="let element"> {{ element.pradd_row_added_oprid }} </td>
-    </ng-container>
-
-    <ng-container matColumnDef="addedDate">
-      <th mat-header-cell *matHeaderCellDef> {{ this.localization.getMessage('addedDate') }} </th>
-      <td mat-cell *matCellDef="let element"> {{ element.cust_row_added_dttm }} </td>
-    </ng-container>
-
-    <ng-container matColumnDef="lastModifiedBy">
-      <th mat-header-cell *matHeaderCellDef> {{ this.localization.getMessage('lastModifiedBy') }} </th>
-      <td mat-cell *matCellDef="let element"> {{ element.pradd_row_lastmant_oprid }} </td>
-    </ng-container>
-
-    <ng-container matColumnDef="lastModifiedDate">
-      <th mat-header-cell *matHeaderCellDef> {{ this.localization.getMessage('lastModifiedDate') }} </th>
-      <td mat-cell *matCellDef="let element"> {{ element.cust_row_lastmant_dttm }} </td>
+      <td mat-cell *matCellDef="let element" (click)="openCustomerCardDialog(element)"> {{ element.cmcnt_email }} </td>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="this.customersTableColumns; sticky: true"></tr>

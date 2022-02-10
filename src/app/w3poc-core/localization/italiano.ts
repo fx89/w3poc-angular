@@ -12,6 +12,7 @@ export const italiano_LanguageMap = {
     billingAccounts  : "Conti di Fatturazione",
     options          : "Optzioni",
 
+    customerData     : "Informazioni per il cliente",
     customerName     : "Nome del cliente",
     customerType     : "Tipo del cliente",
     address          : "Indirizzo",
@@ -22,8 +23,22 @@ export const italiano_LanguageMap = {
     phoneNumber      : "Numero di Telefono",
     emailAddress     : "Indirizzo Email",
 
+    registryNumber   : "Numero di registro",
+
+    basicInfo        : "Informazioni di base",
+    operatorInfo     : "Informazioni sull'operatore",
+    contactInfo      : "Informazioni sui contatti",
+
+    customerHandsets : "Telefoni dei Clienti",
+
+    added            : "Aggiunto",
+    modified         : "Modificati",
+
     all              : "Tutti",
     clear            : "Cancellare",
+    close            : "Chiudere",
+
+    viewHandsets     : "Visualizzare i Telefoni ",
 
     loadingData      : "Caricamento dei Dati",
     filters          : "Filtri",

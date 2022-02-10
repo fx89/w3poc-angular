@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { LocalizationService } from 'src/app/w3poc-core/localization.service';
 import { W3pocDataService } from 'src/app/w3poc-http-data/w3poc-data.service';
+import { CustomerCardDialogContentComponent } from './customer-card-dialog-content/customer-card-dialog-content.component';
 
 @Component({
   selector: 'app-customers-page',
@@ -21,11 +23,7 @@ export class CustomersPageComponent implements OnInit {
       "type",
       "address",
       "phoneNumber",
-      "emailAddress",
-      "addedBy",
-      "addedDate",
-      "lastModifiedBy",
-      "lastModifiedDate"
+      "emailAddress"
     ]
 
   namePattern : string = ''
@@ -35,7 +33,8 @@ export class CustomersPageComponent implements OnInit {
 
   constructor(
       private dataService : W3pocDataService,
-      public localization : LocalizationService
+      public localization : LocalizationService,
+      private dialog: MatDialog
   ) { }
 
   ngOnInit(): void {
@@ -100,5 +99,13 @@ export class CustomersPageComponent implements OnInit {
 
   private resetWindow() {
       this.windowStart = 0
+  }
+
+  openCustomerCardDialog(customer:any) {
+      const dialogRef = this.dialog.open(CustomerCardDialogContentComponent, {data: { customer:customer, customerTypesMap:this.customerTypesMap } });
+
+      dialogRef.afterClosed().subscribe(result => {
+          console.log(`Dialog result: ${result}`);
+      });
   }
 }

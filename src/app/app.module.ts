@@ -20,6 +20,9 @@ import {MatTableModule} from '@angular/material/table';
 import {MatExpansionModule} from '@angular/material/expansion';
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
+import { CustomerCardDialogContentComponent } from './pages/customers-page/customer-card-dialog-content/customer-card-dialog-content.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { CustomerHandsetsDialogContentComponent } from './pages/customers-page/customer-handsets-dialog-content/customer-handsets-dialog-content.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +31,9 @@ import { MatInputModule } from '@angular/material/input';
     MainPageComponent,
     LeftMenuComponent,
     TopBarComponent,
-    LoadingModalContentComponent
+    LoadingModalContentComponent,
+    CustomerCardDialogContentComponent,
+    CustomerHandsetsDialogContentComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +48,8 @@ import { MatInputModule } from '@angular/material/input';
     MatTableModule,
     MatExpansionModule,
     MatSelectModule,
-    MatInputModule
+    MatInputModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

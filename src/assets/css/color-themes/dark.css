@@ -63,4 +63,8 @@
 
     --panel-background-color: #333;
     --panel-foreground-color: #CCC;
+    --panel-border-color: #222;
+
+    --dialog-background-color: #333;
+    --dialog-foreground-color: #CCC;
 }

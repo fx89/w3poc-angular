@@ -1,0 +1,51 @@
+<h2 mat-dialog-title>{{ localization.getMessage('customerHandsets') }}</h2>
+<mat-dialog-content class="mat-typography">
+    <div style="width:1210px; height:300px;">
+
+      <table mat-table [dataSource]="this.handsets" class="mat-elevation-z4">
+
+        <ng-container matColumnDef="HO_INST_PROD_ID">
+            <th mat-header-cell *matHeaderCellDef> HO_INST_PROD_ID </th>
+            <td mat-cell *matCellDef="let element"> {{ element.ho_inst_prod_id }} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="HO_PRODUCT_ID">
+            <th mat-header-cell *matHeaderCellDef> HO_PRODUCT_ID </th>
+            <td mat-cell *matCellDef="let element"> {{ element.ho_product_id }} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="HO_PRODUCT_DESCR">
+            <th mat-header-cell *matHeaderCellDef> HO_PRODUCT_DESCR </th>
+            <td mat-cell *matCellDef="let element"> {{ element.ho_product_descr }} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="HO_PRODUCT_CATEGORY">
+            <th mat-header-cell *matHeaderCellDef> HO_PRODUCT_CATEGORY </th>
+            <td mat-cell *matCellDef="let element"> {{ element.ho_product_category }} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="HO_ATTIV_SERV_DTTM">
+            <th mat-header-cell *matHeaderCellDef> HO_ATTIV_SERV_DTTM </th>
+            <td mat-cell *matCellDef="let element"> {{ element.ho_attiv_serv_dttm }} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="HO_INST_PROD_STATUS">
+            <th mat-header-cell *matHeaderCellDef> HO_INST_PROD_STATUS </th>
+            <td mat-cell *matCellDef="let element"> {{ element.ho_inst_prod_status }} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="HO_CAPTURE_ID">
+            <th mat-header-cell *matHeaderCellDef> HO_CAPTURE_ID </th>
+            <td mat-cell *matCellDef="let element"> {{ element.ho_capture_id }} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="this.handsetsTableColumns; sticky: true"></tr>
+        <tr mat-row *matRowDef="let row; columns: this.handsetsTableColumns;"></tr>
+    </table>
+
+    </div>
+
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-raised-button color="primary" [mat-dialog-close]="true" cdkFocusInitial>{{ localization.getMessage('close') }}</button>
+</mat-dialog-actions>
