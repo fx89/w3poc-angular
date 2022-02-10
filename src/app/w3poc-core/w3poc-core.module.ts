@@ -6,9 +6,10 @@ import { LoginHandlerComponent } from './login-handler/login-handler.component';
 import { LocalizationService } from './localization.service';
 import { LanguageSelectorComponent } from './language-selector/language-selector.component';
 import { MatSelectModule } from '@angular/material/select';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoadingModalService } from './loading-modal.service';
 import { LoadingModalComponent } from './loading-modal/loading-modal.component';
+import { ThemeChooserComponent } from './theme-chooser/theme-chooser.component';
 
 
 
@@ -16,7 +17,8 @@ import { LoadingModalComponent } from './loading-modal/loading-modal.component';
   declarations: [
     LoginHandlerComponent,
     LanguageSelectorComponent,
-    LoadingModalComponent
+    LoadingModalComponent,
+    ThemeChooserComponent
   ],
   imports: [
     CommonModule,
@@ -32,7 +34,8 @@ import { LoadingModalComponent } from './loading-modal/loading-modal.component';
   exports: [
     LoginHandlerComponent,
     LanguageSelectorComponent,
-    LoadingModalComponent
+    LoadingModalComponent,
+    ThemeChooserComponent
   ]
 })
 export class W3pocCoreModule { }

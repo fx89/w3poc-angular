@@ -1,0 +1,63 @@
+.color-theme-bright {
+    --page-background-color: #AAA;
+    --scrollbar-foreground-color: #333;
+
+    --top-bar-background-color-1: #333;
+    --top-bar-background-color-2: #666;
+    --top-bar-accent-color: #B63;
+    --top-bar-accent2-color: #000;
+    --top-bar-foregroud-color: #FFF;
+
+    --left-menu-background-color: #DDD;
+    --left-menu-shadow-color: #555;
+
+    --left-menu-footer-background-color: #000;
+    --left-menu-footer-foreground-color: #999;
+
+    --iconic-thumbnail-background-color: #DDD;
+    --iconic-thumbnail-border-color: #EEE;
+    --iconic-thumbnail-foreground-color: #555;
+    --iconic-thumbnail-background-color-selected: #33A;
+    --iconic-thumbnail-foreground-color-selected: #FFF;
+    --iconic-thumbnail-background-color-hover: #FFF;
+    --iconic-thumbnail-foreground-color-hover: #000;
+    --iconic-thumbnail-border-color-hover: #FFF;
+    --iconic-thumbnail-background-color-icon: #AAA;
+    --iconic-thumbnail-foreground-color-icon: #444;
+    --iconic-thumbnail-background-color-icon-selected: #FFF;
+    --iconic-thumbnail-foreground-color-icon-selected: #000;
+
+    --loading-modal-cover-background-color: #555;
+    --loading-modal-cover-opacity: 90%;
+    --loading-modal-ribbon-color: #999;
+    --loading-modal-ribbon-shadow-color: #000;
+    --loading-modal-form-background-color: #FFF;
+    --loading-modal-form-foreground-color: #777;
+    --loading-modal-form-border-color: #999;
+    --loading-modal-form-shadow-color: #000;
+
+    --loading-dot-background-color: #000;
+    --loading-dot-border-color: #555;
+
+    --button-background-color: #AAA;
+    --button-foreground-color: #FFF;
+
+    --input-foreground-color: #CCC;
+    --input-foreground-color-selected: #FFF;
+    --input-background-color-selected: #77F;
+
+    --input-label-foregroud-color: #999;
+    --input-label-foregroud-color-focused: #FFF;
+
+    --datatable-header-background-color: #DDD;
+    --datatable-header-foreground-color: #000;
+    --datatable-header-border-color: #AAA;
+    --datatable-cell-background-color: #FFF;
+    --datatable-cell-foreground-color: #777;
+    --datatable-cell-border-color: #444;
+    --datatable-cell-background-color-hover: #EEE;
+    --datatable-cell-foreground-color-hover: #000;
+
+    --panel-background-color: #EEE;
+    --panel-foreground-color: #333;
+}

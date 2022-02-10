@@ -1,0 +1,12 @@
+<table><tr><td>
+  {{selectedThemeName}}
+  <div class="theme-selector-color-bullet {{selectedThemeName}}"></div>
+</td><td>
+  <mat-form-field appearance="fill" style="width:90px;">
+      <mat-select disableRipple [(value)]="selectedThemeName" (selectionChange)="applySelectedThemeName()">
+          <mat-option *ngFor="let themeName of availableThemeNames" [value]="themeName">
+              {{ themeName }}
+          </mat-option>
+      </mat-select>
+  </mat-form-field>
+</td></tr></table>
